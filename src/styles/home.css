@@ -1,0 +1,10 @@
+.tittle {
+    display: flex;
+    justify-content: center;
+}
+#exampleFormControlInput1 {
+    margin-top: 10px;
+}
+.button {
+    width: 100%;
+}
