@@ -2,8 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 
 const addContact = () => (
-    <div className="mt-5">
-		<div className="container">
+		<div className="envolture">
 			<div className="tittle">
 				<h1>Add new Contact</h1>
 			</div>
@@ -26,7 +25,6 @@ const addContact = () => (
 			<button type="button" className="button btn btn-primary">Save</button>
 			<a href="#" class="link-primary">or get back to contacts</a>
 		</div>
-	</div>
 );
 
 export default addContact;

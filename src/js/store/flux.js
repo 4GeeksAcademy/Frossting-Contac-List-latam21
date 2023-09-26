@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			contacts: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -11,6 +12,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					title: "SECOND",
 					background: "white",
 					initial: "white"
+				},
+				{
+					title: "Brad Pitt",
+					background: "black",
+					initial: "Purple"
 				}
 			]
 		},

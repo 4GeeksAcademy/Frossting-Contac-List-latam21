@@ -8,3 +8,22 @@
 .button {
     width: 100%;
 }
+.content{
+    display: flex;
+    border: 2px solid black;
+    margin: 100px;
+    padding: 50px;
+}
+.contactCard{
+    display: flex;
+    max-width: 100%;
+}
+.contactInfo{
+    margin-left: 50px;
+}
+.deleteIcon{
+    margin-left: 1150px;
+}
+.editIcon{
+    margin-left: 80px;
+}
