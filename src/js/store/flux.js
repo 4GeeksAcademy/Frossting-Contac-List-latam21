@@ -58,8 +58,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						getActions().getAllContacs()
 					}
 				} catch (error) {
-					console.error(error)
-					
 				}
 				
 			},
@@ -76,14 +74,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
 				}
 			},
-			deleteContact: async (data) => {
+			deleteContact: async (contactId) => {
 				try {
-					let response = await fetch(getStore().urlBase/{contact_id}, {
-						method: "PUT",
+					let response = await fetch(`${getStore().urlBase}/${contactId}`, {
+						method: "DELETE",
 						headers: {
 							"Content-Type": "application/json"
 						},
-						body: JSON.stringify(data)
 					})
 					if (response.ok) {
 						getActions().getAllContacs()
