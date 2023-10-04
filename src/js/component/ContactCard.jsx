@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 
 const contactCard = () => {
     const { store } = useContext(Context)
+    
 
     return (
         <div className="content">
@@ -23,7 +24,7 @@ const contactCard = () => {
 
                             </div>
                             <div className="deleteIcon">
-                                <a href=""><i class="fas fa-trash"></i></a>
+                                <a href="" ><i class="fas fa-trash"></i></a>
                             </div>
                             <div className="editIcon">
                                 <a href=""><i class="fas fa-pencil-alt"></i></a>

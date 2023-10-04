@@ -55,12 +55,12 @@ const addContact = () => {
 			<div className="mb-3">
 				<label for="exampleFormControlInput1" className="form-label"><strong>Phone</strong></label>
 				<input 
-				type="number" 
+				type="text" 
 				className="form-control" 
 				id="exampleFormControlInput1" 
 				placeholder="Enter phone"
-				name="address" 
-				value={contact.address}
+				name="phone" 
+				value={contact.phone}
 				onChange={handleChange}
 				/>
 				
@@ -72,8 +72,8 @@ const addContact = () => {
 				className="form-control" 
 				id="exampleFormControlInput1" 
 				placeholder="Enter address"
-				name="phone" 
-				value={contact.phone}
+				name="address" 
+				value={contact.address}
 				onChange={handleChange}
 				/>
 			</div>
