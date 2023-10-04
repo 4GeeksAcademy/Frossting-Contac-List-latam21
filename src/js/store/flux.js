@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			urlBase: "https://playground.4geeks.com/apis/fake/contact",
 			contacts: [],
 			demo: [
 				{
@@ -43,6 +44,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			addContact: async (data) => {
+				try {
+					let response = await fetch(getStore().urlBase, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(data)
+					})
+					if (response.ok) {
+						getActions().getAllContacs()
+					}
+				} catch (error) {
+					console.error(error)
+					
+				}
+				
+			},
+			getAllContacs: async () => {
+				try { 
+					let response = await fetch(`${getStore().urlBase}/agenda/Mycontacts`)
+					let data = await response.json()
+					if (response.ok) {
+						setStore({
+							contacts:data
+						})
+					}
+				} catch (error) {
+					
+				}
+			},
+			deleteContact: async (data) => {
+				try {
+					let response = await fetch(getStore().urlBase/{contact_id}, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(data)
+					})
+					if (response.ok) {
+						getActions().getAllContacs()
+					}
+				} catch (error) {
+					console.error(error)
+				}
 			}
 		}
 	};

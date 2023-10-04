@@ -8,7 +8,7 @@
 .button {
     width: 100%;
 }
-.content{
+.card{
     display: flex;
     border: 2px solid black;
     margin: 100px;
@@ -22,8 +22,14 @@
     margin-left: 50px;
 }
 .deleteIcon{
-    margin-left: 1150px;
+    margin-left: 1100px;
 }
 .editIcon{
     margin-left: 80px;
+}
+.addContact{
+    display: flex;
+}
+.envolture{
+    margin: 50px;
 }
