@@ -2,7 +2,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			urlBase: "https://playground.4geeks.com/apis/fake/contact",
-			contacts: [],
+			contacts: [
+				{
+					address: "2814 ASHFORD LN",
+					agenda_slug: "Mycontacts",
+					email: "dbetan997@gmail.com",
+					full_name: "David Betancourt",
+					id: 93374584596,
+					phone: "6088883262"
+				}
+			],
 			demo: [
 				{
 					title: "FIRST",
@@ -59,19 +68,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				} catch (error) {
 				}
-				
+
 			},
 			getAllContacs: async () => {
-				try { 
+				try {
 					let response = await fetch(`${getStore().urlBase}/agenda/Mycontacts`)
 					let data = await response.json()
 					if (response.ok) {
 						setStore({
-							contacts:data
+							contacts: data
 						})
 					}
 				} catch (error) {
-					
+
 				}
 			},
 			deleteContact: async (contactId) => {
@@ -88,6 +97,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.error(error)
 				}
+			},
+			editContact: async (data, contactId) => {
+				try {
+					console.log("editContact", contactId)
+					let response = await fetch(`${getStore().urlBase}/${contactId}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(data)
+					})
+					console.log("response", response)
+					if (response.ok) {
+						getActions().getAllContacs()
+					}
+				} catch (error) {
+				}
+
 			}
 		}
 	};

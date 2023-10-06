@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const contactCard = () => {
     const { store, actions } = useContext(Context)
+    const [isModalOpen, setisModalOpen] = useState()
     
-    
-
     return (
         <div className="content">
             <Link to="/">
-                <button className="m-4 btn btn-success">Add new contact</button>
+                <button className="add btn btn-success">Add new contact</button>
             </Link>
             {store.contacts.map((item) => {
                 return (
@@ -22,13 +21,16 @@ const contactCard = () => {
                                 <p><i class="fas fa-map-marker-alt"> {item.address}</i></p>
                                 <p><i class="fas fa-phone"></i> {item.phone}</p>
                                 <p><i class="fas fa-envelope"></i> {item.email}</p>
-
                             </div>
-                            <div className="deleteIcon">
-                                <a href="" onClick={()=>actions.deleteContact(item.id)}><i class="fas fa-trash"></i></a>
-                            </div>
-                            <div className="editIcon">
-                                <a href=""><i class="fas fa-pencil-alt"></i></a>
+                            <div className="icons">
+                                <div>
+                                    <Link to={`/editUser/${item.id}`}>
+                                        <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                    </Link>
+                                </div>                               
+                                <div>
+                                    <a href="" onClick={()=>actions.deleteContact(item.id)}><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>

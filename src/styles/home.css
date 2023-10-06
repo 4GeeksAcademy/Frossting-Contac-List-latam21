@@ -22,15 +22,21 @@
     margin-left: 50px;
     min-width: 300px;
 }
-.deleteIcon{
-    margin-left: 1000px;
-}
-.editIcon{
-    margin-left: 80px;
-}
 .addContact{
     display: flex;
 }
 .envolture{
     margin: 50px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add{
+    margin-left: 535px;
+}
+.icons{
+    display: flex;
+    justify-content: space-evenly;
 }

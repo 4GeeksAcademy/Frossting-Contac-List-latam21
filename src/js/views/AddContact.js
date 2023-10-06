@@ -2,8 +2,10 @@ import React, {useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom"
 
 const addContact = () => {
+	const params = useParams()
 	const {actions} = useContext(Context)
 	const [contact, setContact] = useState({
 		"full_name": "",
@@ -21,12 +23,24 @@ const addContact = () => {
 	const saveTask = () => {
 		actions.addContact(contact)
 	}  
+	const dispatchAction = () => {
+		if (params?.id) {
+			console.log("edit", params.id)
+			actions.editContact(contact, params.id)
+		} else {
+			saveTask()
+		}
+	}
+
+	console.log(params)
 
 	return (
 		
 		<div className="envolture">
 			<div className="tittle">
-				<h1>Add new Contact</h1>
+				{
+					params?.id ?(<h1>Edit contact</h1>) : (<h1>Add new Contact</h1>)
+				}
 			</div>
 			<div className="mb-3">
 				<label for="exampleFormControlInput1" className="form-label"><strong>Full name</strong></label>
@@ -79,7 +93,7 @@ const addContact = () => {
 			</div>
 			<button 
 			type="button" 
-			className="button btn btn-primary" onClick={()=>saveTask()}>Save</button>
+			className="button btn btn-primary" onClick={()=>dispatchAction()}>Save</button>
 			<Link to="/contacts">
 				<a href="#" class="link-primary">or get back to contacts</a>
 			</Link>
