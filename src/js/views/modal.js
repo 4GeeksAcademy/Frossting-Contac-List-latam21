@@ -1,6 +1,8 @@
 import React from "react";
 
-const alertDeleteContact = () => {
+const Modal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+
     return (
         <div className="modal" tabindex="-1">
             <div className="modal-dialog">
@@ -13,7 +15,7 @@ const alertDeleteContact = () => {
                         <p>Modal body text goes here.</p>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={onClose}>Close</button>
                         <button type="button" className="btn btn-primary">Save changes</button>
                     </div>
                 </div>
@@ -22,4 +24,4 @@ const alertDeleteContact = () => {
     )
 }
 
-export default alertDeleteContact;
+export default Modal;

@@ -1,11 +1,22 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Modal from "../views/modal";
 
 const contactCard = () => {
     const { store, actions } = useContext(Context)
-    const [isModalOpen, setisModalOpen] = useState()
+
+    const [isModalOpen, setModalOpen] = useState(false)
+
+    const openModal = () => {
+        setModalOpen(true)
+        console.log(openModal, "se abrio")
+    }
     
+    const closeModal = () => {
+        setModalOpen(false)
+    }
+
     return (
         <div className="content">
             <Link to="/">
@@ -29,7 +40,8 @@ const contactCard = () => {
                                     </Link>
                                 </div>                               
                                 <div>
-                                    <a href="" onClick={()=>actions.deleteContact(item.id)}><i class="fas fa-trash"></i></a>
+                                    <button onClick={openModal}><i class="fas fa-trash"></i></button>
+                                    <Modal isOpen={isModalOpen} onClose={closeModal} />
                                 </div>
                             </div>
                         </div>
@@ -42,3 +54,8 @@ const contactCard = () => {
 }
 
 export default contactCard;
+
+
+
+
+    
